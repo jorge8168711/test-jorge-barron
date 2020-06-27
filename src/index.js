@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const App = () => {
-  return <div>Que pedal</div>;
-};
+import './assets/styles/index.scss';
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('app'));
