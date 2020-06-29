@@ -1,0 +1,59 @@
+@import '../../../assets/styles/settings/all';
+@import '../../../assets/styles/tools/all';
+
+.InboxHeader {
+  font-size: 1rem; // controls the size of all the component elements
+
+  &-top {
+    padding: em(20px);
+    border-bottom: 1px solid $border-color-gray;
+    padding-bottom: em(20px);
+  }
+
+  &-title {
+    margin: 0;
+    font-size: em(17px);
+    line-height: 1;
+  }
+
+  &-badge {
+    color: $white;
+    line-height: 1;
+    font-weight: normal;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+
+    background-color: $color-warn;
+    border-radius: 9999px;
+    padding: em(2px) em(8px);
+    margin-left: em(10px);
+  }
+
+  &-select {
+    border: 1px solid $border-color-gray;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: em(6px) em(30px) em(6px) em(12px);
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &-selectIcon {
+    color: $color-primary;
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: em(24px);
+    border-left: 1px solid $border-color-gray;
+    background: transparent url(../../../assets//img//dropdown-arrows.svg) center/em(18px) no-repeat;
+  }
+}

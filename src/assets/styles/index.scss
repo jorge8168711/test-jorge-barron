@@ -1,5 +1,38 @@
-$bg: tomato;
+/* desciptions based on this ITCSS Boilerplate
+ * https://github.com/alanshortis/itcss-boilerplate
+ */
 
-body {
-  background-color: tomato;
-}
+/*
+ * SETTINGS
+ * Global SASS variables
+ */
+
+@import './settings/all';
+
+/*
+ * TOOLS
+ * SASS functions and mixins etc.
+ */
+@import './tools/all';
+
+/*
+ * GENERIC
+ * Very far reaching selectors. CSS resets where elements are
+ * selected directly and restting non-standard form behaviours.
+ */
+@import './generic/all';
+
+/*
+ * ELEMETNS
+ * Default styling on elements without classes, such as
+ * typography (h1, h2, etc) and base elements (html, body).
+ */
+@import './elements/all';
+
+/*
+ * UTILITIES
+  * Overrides, helpers, utilities and shame. The highest specificity
+ * and/or classes/properties that must always 'win', using the cascade
+ * to beat earlier properties.
+ */
+@import './utilities/all';

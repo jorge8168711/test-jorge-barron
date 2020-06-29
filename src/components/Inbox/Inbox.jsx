@@ -1,10 +1,12 @@
 import React from 'react';
+import InboxHeader from './Header/Header';
+import './Inbox.scss';
 
-const Inbox = (props) => {
+const Inbox = () => {
   return (
-    <div className='Inbox'>
-      <p>Hello Inbox</p>
-    </div>
+    <section className='Inbox'>
+      <InboxHeader />
+    </section>
   );
 };
 

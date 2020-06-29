@@ -1,6 +1,7 @@
 import React from 'react';
+import './Viewer.scss';
 
-const Viewer = (props) => {
+const Viewer = () => {
   return (
     <div className='Viewer'>
       <p>Hello Viewer</p>
