@@ -7,7 +7,7 @@ import { markAsRead } from '../../../store/actions';
 
 const InboxEmail = (props) => {
   const dispatch = useDispatch();
-  const { data, onClick } = props;
+  const { data, onClick, selected } = props;
 
   function markEmailAsRead() {
     onClick();
@@ -17,7 +17,9 @@ const InboxEmail = (props) => {
   }
 
   return (
-    <div className={`InboxEmail ${!data.isReaded && 'is-selected'}`} onClick={markEmailAsRead}>
+    <div
+      className={`InboxEmail ${!data.isReaded && 'is-unread'} ${selected && 'is-selected'}`}
+      onClick={markEmailAsRead}>
       <div className='flex'>
         <div className='InboxEmail-left'>
           <p className='InboxEmail-subject'>{data.subject}</p>
@@ -36,6 +38,7 @@ const InboxEmail = (props) => {
 
 InboxEmail.propTypes = {
   onClick: PropTypes.func,
+  selected: PropTypes.bool,
   data: PropTypes.shape({
     attachements: PropTypes.arrayOf(
       PropTypes.shape({
@@ -57,7 +60,8 @@ InboxEmail.propTypes = {
 
 InboxEmail.defaultProps = {
   data: {},
-  onClick: () => null
+  onClick: () => null,
+  selected: false
 };
 
 export default InboxEmail;

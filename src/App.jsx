@@ -15,7 +15,11 @@ const App = () => {
 
   return (
     <main className='flex min-h-screen'>
-      <Inbox emails={store[store.filterBy]} onSelect={setSelection} />
+      <Inbox
+        emails={store[store.filterBy]}
+        onSelect={setSelection}
+        selection={selection && selection.id}
+      />
 
       {selection && <Viewer email={selection} />}
     </main>

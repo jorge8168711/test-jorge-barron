@@ -19,6 +19,11 @@
     border-top: 1px solid $border-color-gray;
   }
 
+  &-link.Button {
+    text-decoration: none;
+    color: $color-gray-dark;
+  }
+
   &-button.Button {
     height: em(35px);
     border-radius: 0 0 em(2px) 0;

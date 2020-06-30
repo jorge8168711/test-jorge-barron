@@ -11,9 +11,14 @@
     border-bottom: 1px solid $border-color-gray;
   }
 
-  &.is-selected {
+  &.is-unread {
     border-left-color: $color-primary;
     background-color: $color-primary-light;
+  }
+
+  &:not(.is-unread):hover,
+  &.is-selected {
+    background-color: $color-gray-light
   }
 
   &-left {
@@ -31,7 +36,7 @@
     margin: 0 0 em(7px);
   }
 
-  &.is-selected &-subject {
+  &.is-unread &-subject {
     color: $color-primary
   }
 

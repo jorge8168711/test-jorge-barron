@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 const Inbox = (props) => {
-  const { emails, onSelect } = props;
+  const { emails, onSelect, selection } = props;
   const currentSearch = useSelector((state) => state.search);
 
   return (
@@ -26,6 +26,7 @@ const Inbox = (props) => {
             }}
             data={email}
             key={email.id}
+            selected={selection === email.id}
           />
         ))}
     </section>
@@ -34,6 +35,7 @@ const Inbox = (props) => {
 
 Inbox.propTypes = {
   onSelect: PropTypes.func,
+  selection: PropTypes.sttring,
   emails: PropTypes.arrayOf(
     PropTypes.shape({
       attachements: PropTypes.arrayOf(
@@ -57,7 +59,8 @@ Inbox.propTypes = {
 
 Inbox.defaultProps = {
   emails: [],
-  onSelect: () => null
+  onSelect: () => null,
+  selection: ''
 };
 
 export default Inbox;
