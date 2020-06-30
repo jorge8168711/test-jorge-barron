@@ -27,7 +27,7 @@ const InboxHeader = (props) => {
     <header className='InboxHeader'>
       <div className='flex items-center InboxHeader-top'>
         <h1 className='InboxHeader-title'>Inbox</h1>
-        {unreadedItems && <span className='InboxHeader-badge'>{unreadedItems}</span>}
+        {unreadedItems > 0 && <span className='InboxHeader-badge'>{unreadedItems}</span>}
 
         <Select classes='ml-auto' value={currentFilter} onChange={handleFilterChange}>
           <option value='' disabled>
