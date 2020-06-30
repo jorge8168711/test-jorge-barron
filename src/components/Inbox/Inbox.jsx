@@ -1,10 +1,18 @@
 import React from 'react';
+import InboxHeader from './Header/Header';
+import './Inbox.scss';
+import InboxEmail from './Email/Email';
 
-const Inbox = (props) => {
+const Inbox = () => {
   return (
-    <div className='Inbox'>
-      <p>Hello Inbox</p>
-    </div>
+    <section className='Inbox'>
+      <InboxHeader />
+
+      <InboxEmail selected />
+      <InboxEmail />
+      <InboxEmail />
+      <InboxEmail />
+    </section>
   );
 };
 
