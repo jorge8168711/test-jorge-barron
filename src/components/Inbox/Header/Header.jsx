@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Search from '../../Search';
 import './Header.scss';
+import Select from '../../Select/Select';
 
 const filterOptions = [
   { id: 'read', name: 'Read' },
@@ -21,23 +22,16 @@ const InboxHeader = () => {
         <h1 className='InboxHeader-title'>Inbox</h1>
         <span className='InboxHeader-badge'>3</span>
 
-        <div className='relative ml-auto'>
-          <select
-            value={currentFilter}
-            className='InboxHeader-select'
-            onChange={handleFilterChange}>
-            <option value='' disabled>
-              Filter by
+        <Select classes='ml-auto' value={currentFilter} onChange={handleFilterChange}>
+          <option value='' disabled>
+            Filter by
+          </option>
+          {filterOptions.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.name}
             </option>
-            {filterOptions.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
-
-          <div className='InboxHeader-selectIcon'></div>
-        </div>
+          ))}
+        </Select>
       </div>
 
       <Search />

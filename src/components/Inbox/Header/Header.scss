@@ -27,33 +27,4 @@
     padding: em(2px) em(8px);
     margin-left: em(10px);
   }
-
-  &-select {
-    border: 1px solid $border-color-gray;
-    border-radius: 2px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    padding: em(6px) em(30px) em(6px) em(12px);
-
-    &::-ms-expand {
-      display: none;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  &-selectIcon {
-    color: $color-primary;
-    position: absolute;
-    pointer-events: none;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: em(24px);
-    border-left: 1px solid $border-color-gray;
-    background: transparent url(../../../assets//img//dropdown-arrows.svg) center/em(18px) no-repeat;
-  }
 }
