@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InboxHeader from './Header/Header';
 import './Inbox.scss';
 import InboxEmail from './Email/Email';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const Inbox = (props) => {
-  const [selection, setSelection] = useState([]);
   const { emails } = props;
+  const currentSearch = useSelector((state) => state.search);
 
   return (
     <section className='Inbox'>
       <InboxHeader unreadedItems={emails.filter((item) => !item.isReaded).length} />
 
-      {emails.map((email) => (
-        <InboxEmail onClick={(event, id) => console.log(event, id)} data={email} key={email.id} />
-      ))}
+      {emails
+        .filter(
+          (item) =>
+            item.body.toLowerCase().includes(currentSearch.toLowerCase()) ||
+            item.subject.toLowerCase().includes(currentSearch.toLowerCase())
+        )
+        .map((email) => (
+          <InboxEmail onClick={(event, id) => console.log(event, id)} data={email} key={email.id} />
+        ))}
     </section>
   );
 };

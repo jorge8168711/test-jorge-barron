@@ -3,7 +3,7 @@ import Search from '../../Search/Search';
 import './Header.scss';
 import Select from '../../Select/Select';
 import PropTypes from 'prop-types';
-import { setFilter } from '../../../store/actions';
+import { setFilter, setSearch } from '../../../store/actions';
 import { useDispatch } from 'react-redux';
 
 const filterOptions = [
@@ -41,7 +41,7 @@ const InboxHeader = (props) => {
         </Select>
       </div>
 
-      <Search onSearch={(e) => console.log(e)} />
+      <Search onSearch={(search) => dispatch(setSearch(search))} />
     </header>
   );
 };

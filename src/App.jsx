@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchEmails } from './store/actions';
 
 const App = () => {
-  const state = useSelector((state) => state);
+  const store = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <main className='flex min-h-screen'>
-      <Inbox emails={state[state.filterBy]} />
+      <Inbox emails={store[store.filterBy]} />
 
       <Viewer />
     </main>
