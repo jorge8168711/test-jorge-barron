@@ -16,7 +16,6 @@
     background-color: $color-primary-light;
   }
 
-  &:not(.is-unread):hover,
   &.is-selected {
     background-color: $color-gray-light
   }
