@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Search from '../../Search';
+import Search from '../../Search/Search';
 import './Header.scss';
 import Select from '../../Select/Select';
 
@@ -34,7 +34,7 @@ const InboxHeader = () => {
         </Select>
       </div>
 
-      <Search />
+      <Search onSearch={(e) => console.log(e)} />
     </header>
   );
 };
