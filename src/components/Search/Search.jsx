@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Search.scss';
-import CloseIcon from '../Icons/Close';
+import CloseIcon from '../icons/Close';
 
 const Search = ({ onSearch, placeholder }) => {
   const [search, setSearch] = useState('');

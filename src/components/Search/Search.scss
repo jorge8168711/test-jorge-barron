@@ -11,7 +11,7 @@
   width: 100%;
 
   &:not(.has-value) {
-    background: transparent url(../../assets/img/search-24px.svg) calc(100% - 10px) center/22px no-repeat;
+    background: transparent url(../../assets/img/search-24px.svg) calc(100% - 10px) center/20px no-repeat;
   }
 
   &-container {
@@ -37,8 +37,7 @@
     background-color: transparent;
     height: 100%;
     width: em(40px);
-    color: $color-gray-dark;
-    opacity: .6;
+    color: $color-gray;
     border: none;
     position: absolute;
     right: 0;
