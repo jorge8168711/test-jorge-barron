@@ -6,6 +6,8 @@ export const ASYNC_ACTION = 'ASYNC_ACTION';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_SEARCH = 'SET_SEARCH';
 
+export const MARK_AS_READ = 'MARK_AS_READ';
+
 export function asyncAction(action) {
   return { ASYNC_ACTION: action };
 }
@@ -27,4 +29,8 @@ export function setFilter(filter) {
 }
 export function setSearch(search) {
   return { type: SET_SEARCH, search };
+}
+
+export function markAsRead(itemId) {
+  return { type: MARK_AS_READ, itemId };
 }

@@ -3,7 +3,8 @@ import {
   FETCH_EMAILS_SUCCESS,
   FETCH_EMAILS_FAILED,
   SET_FILTER,
-  SET_SEARCH
+  SET_SEARCH,
+  MARK_AS_READ
 } from './actions';
 
 const initialState = {
@@ -32,6 +33,13 @@ const reducer = (state = initialState, action) => {
 
     case SET_SEARCH:
       return { ...state, search: action.search };
+
+    case MARK_AS_READ:
+      const itemIndex = state[state.filterBy].findIndex((item) => item.id === action.itemId);
+      const updatedItems = [...state[state.filterBy]];
+      updatedItems[itemIndex].isReaded = true;
+
+      return { ...state, [state.filterBy]: updatedItems };
 
     default:
       return state;

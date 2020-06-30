@@ -2,14 +2,21 @@ import React from 'react';
 import AttachmentIcon from '../../icons/Attachment';
 import PropTypes from 'prop-types';
 import './Email.scss';
+import { useDispatch } from 'react-redux';
+import { markAsRead } from '../../../store/actions';
 
 const InboxEmail = (props) => {
-  const { selected, data, onClick } = props;
+  const dispatch = useDispatch();
+  const { data } = props;
+
+  function markEmailAsRead() {
+    if (!data.isReaded) {
+      dispatch(markAsRead(data.id));
+    }
+  }
 
   return (
-    <div
-      className={`InboxEmail ${selected && 'is-selected'}`}
-      onClick={(event) => onClick(event, data.id)}>
+    <div className={`InboxEmail ${!data.isReaded && 'is-selected'}`} onClick={markEmailAsRead}>
       <div className='flex'>
         <div className='InboxEmail-left'>
           <p className='InboxEmail-subject'>{data.subject}</p>
@@ -27,7 +34,6 @@ const InboxEmail = (props) => {
 };
 
 InboxEmail.propTypes = {
-  selected: PropTypes.bool,
   data: PropTypes.shape({
     attachements: PropTypes.arrayOf(
       PropTypes.shape({
@@ -48,7 +54,6 @@ InboxEmail.propTypes = {
 };
 
 InboxEmail.defaultProps = {
-  selected: false,
   data: {}
 };
 
