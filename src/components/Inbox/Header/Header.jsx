@@ -2,25 +2,32 @@ import React, { useState } from 'react';
 import Search from '../../Search/Search';
 import './Header.scss';
 import Select from '../../Select/Select';
+import PropTypes from 'prop-types';
+import { setFilter } from '../../../store/actions';
+import { useDispatch } from 'react-redux';
 
 const filterOptions = [
-  { id: 'read', name: 'Read' },
-  { id: 'unread', name: 'Unread' }
+  { id: 'inbox', name: 'Inbox' },
+  { id: 'spam', name: 'Spam' },
+  { id: 'deleted', name: 'Deleted' }
 ];
 
-const InboxHeader = () => {
+const InboxHeader = (props) => {
+  const dispatch = useDispatch();
+  const { unreadedItems } = props;
   const [currentFilter, setCurrentFilter] = useState('');
 
   function handleFilterChange(e) {
     const target = e.target;
     setCurrentFilter(target.value);
+    dispatch(setFilter(target.value));
   }
 
   return (
     <header className='InboxHeader'>
       <div className='flex items-center InboxHeader-top'>
         <h1 className='InboxHeader-title'>Inbox</h1>
-        <span className='InboxHeader-badge'>3</span>
+        {unreadedItems && <span className='InboxHeader-badge'>{unreadedItems}</span>}
 
         <Select classes='ml-auto' value={currentFilter} onChange={handleFilterChange}>
           <option value='' disabled>
@@ -37,6 +44,14 @@ const InboxHeader = () => {
       <Search onSearch={(e) => console.log(e)} />
     </header>
   );
+};
+
+InboxHeader.propTypes = {
+  unreadedItems: PropTypes.number
+};
+
+InboxHeader.defaultProps = {
+  unreadedItems: 0
 };
 
 export default InboxHeader;

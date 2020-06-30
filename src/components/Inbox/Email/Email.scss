@@ -3,9 +3,9 @@
 
 .InboxEmail {
   font-size: 1rem;
-  padding: em(20px);
+  padding: em(20px) em(20px) em(10px);
   border-top: 1px solid $border-color-gray;
-  border-left: 5px solid transparent;
+  border-left: 4px solid transparent;
   &:last-child {
     border-bottom: 1px solid $border-color-gray;
   }
@@ -27,25 +27,28 @@
 
   &-subject {
     font-weight: bold;
-    margin: 0 0 em(5px);
+    margin: 0 0 em(7px);
   }
 
   &.is-selected &-subject {
     color: $color-primary
   }
 
+  &-subject,
   &-body {
-    overflow: hidden;
-    margin: 0;
-    width: 100%;
-    line-height: 1.5;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    width: 100%;
+  }
+
+  &-body {
+    margin: 0;
+    line-height: 1.5;
   }
 
   &-date {
-    margin: 0 0 em(4px);
+    margin: 0 0 em(8px);
   }
 
   &-attachment {

@@ -1,0 +1,46 @@
+@import '../../assets/styles/settings/all';
+@import '../../assets/styles/tools/all';
+
+.Button {
+  appearance: none;
+  -webkit-apearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: em(6px) em(14px);
+  border: 0;
+  border-radius: em(2px);
+  transition: background-color .18s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  &--default {
+    border: 1px solid $border-color-gray-dark;
+    color: $color-gray-dark;
+  }
+
+  &--primary,
+  &--warn {
+    color: $white;
+  }
+
+  &--primary {
+    background-color: $color-primary;
+  }
+  &--primary:hover {
+    background-color: darken($color-primary, 5%);
+  }
+
+  &--warn {
+    background-color: $color-warn;
+  }
+  &--warn:hover {
+    background-color: darken($color-warn, 5%);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &--sm {
+    padding: em(3px) em(12px);
+  }
+}

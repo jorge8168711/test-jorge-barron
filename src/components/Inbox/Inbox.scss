@@ -3,4 +3,8 @@
   box-shadow: 8px 0px 12px 0px rgba(0, 0, 0, 0.1);
   flex: 1;
   max-width: 440px;
+
+  @media screen and (max-width: 1024px) {
+    max-width: 240px;
+  }
 }

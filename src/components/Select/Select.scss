@@ -3,7 +3,7 @@
 
 
 .Select {
-  border: 1px solid $border-color-gray;
+  border: 1px solid $border-color-gray-dark;
   border-radius: 2px;
   padding: em(6px) em(30px) em(6px) em(12px);
   appearance: none;
@@ -27,6 +27,6 @@
     height: 100%;
     width: em(24px);
     border-left: 1px solid $border-color-gray;
-    background: transparent url(../../assets//img//dropdown-arrows.svg) center/em(18px) no-repeat;
+            background: transparent url(../../assets//img/dropdown-arrows.svg) center/em(18px) no-repeat;
   }
 }

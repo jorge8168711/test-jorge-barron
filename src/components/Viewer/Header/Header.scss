@@ -1,0 +1,10 @@
+@import '../../../assets/styles/settings/all';
+@import '../../../assets/styles/tools/all';
+
+.ViewerHeader {
+  border-bottom: 1px solid $border-color-gray;
+
+  &-wrapper {
+    padding: em(15px) em(32px);
+  }
+}
