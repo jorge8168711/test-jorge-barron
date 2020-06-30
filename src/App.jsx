@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Inbox from './components/Inbox/Inbox';
 import Viewer from './components/Viewer/Viewer';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,6 +7,7 @@ import { fetchEmails } from './store/actions';
 const App = () => {
   const store = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [selection, setSelection] = useState(null);
 
   useEffect(() => {
     dispatch(fetchEmails());
@@ -14,9 +15,9 @@ const App = () => {
 
   return (
     <main className='flex min-h-screen'>
-      <Inbox emails={store[store.filterBy]} />
+      <Inbox emails={store[store.filterBy]} onSelect={setSelection} />
 
-      <Viewer />
+      {selection && <Viewer email={selection} />}
     </main>
   );
 };
