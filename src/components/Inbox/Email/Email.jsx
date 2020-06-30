@@ -7,9 +7,10 @@ import { markAsRead } from '../../../store/actions';
 
 const InboxEmail = (props) => {
   const dispatch = useDispatch();
-  const { data } = props;
+  const { data, onClick } = props;
 
   function markEmailAsRead() {
+    onClick();
     if (!data.isReaded) {
       dispatch(markAsRead(data.id));
     }
@@ -34,6 +35,7 @@ const InboxEmail = (props) => {
 };
 
 InboxEmail.propTypes = {
+  onClick: PropTypes.func,
   data: PropTypes.shape({
     attachements: PropTypes.arrayOf(
       PropTypes.shape({
@@ -54,7 +56,8 @@ InboxEmail.propTypes = {
 };
 
 InboxEmail.defaultProps = {
-  data: {}
+  data: {},
+  onClick: () => null
 };
 
 export default InboxEmail;
