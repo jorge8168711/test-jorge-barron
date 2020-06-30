@@ -7,6 +7,9 @@ export const SET_FILTER = 'SET_FILTER';
 export const SET_SEARCH = 'SET_SEARCH';
 
 export const MARK_AS_READ = 'MARK_AS_READ';
+export const MARK_AS_UNREAD = 'MARK_AS_UNREAD';
+export const MOVE_TO_SPAM = 'MOVE_TO_SPAM';
+export const DELETE_EMAIL = 'DELETE_EMAIL';
 
 export function asyncAction(action) {
   return { ASYNC_ACTION: action };
@@ -33,4 +36,16 @@ export function setSearch(search) {
 
 export function markAsRead(itemId) {
   return { type: MARK_AS_READ, itemId };
+}
+
+export function markAsUnread(itemId) {
+  return { type: MARK_AS_UNREAD, itemId };
+}
+
+export function moveToSpam(itemId) {
+  return { type: MOVE_TO_SPAM, itemId };
+}
+
+export function deleteEmail(itemId) {
+  return { type: DELETE_EMAIL, itemId };
 }
