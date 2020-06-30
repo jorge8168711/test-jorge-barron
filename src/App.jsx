@@ -36,8 +36,10 @@ const App = () => {
             '3/31/2020',
             false,
             'test 1, test 2, test 4',
-            [{ file: 'https://dummyimage.com/300x300.jpg/eeeeee/000000', name: 'image_1.jpeg' }],
-            { file: 'https://dummyimage.com/300x300.jpg/eeeeee/ffffff', name: 'image_2.jpeg' }
+            [
+              { file: 'https://dummyimage.com/250x250.jpg/dddddd/000000', name: 'image_1.jpeg' },
+              { file: 'https://dummyimage.com/250x250.jpg/5fa2dd/ffffff', name: 'image_2.jpeg' }
+            ]
           )
         ])
       );
