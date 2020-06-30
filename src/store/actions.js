@@ -11,6 +11,8 @@ export const MARK_AS_UNREAD = 'MARK_AS_UNREAD';
 export const MOVE_TO_SPAM = 'MOVE_TO_SPAM';
 export const DELETE_EMAIL = 'DELETE_EMAIL';
 
+export const ADD_EMAILS = 'ADD_EMAILS';
+
 export function asyncAction(action) {
   return { ASYNC_ACTION: action };
 }
@@ -48,4 +50,8 @@ export function moveToSpam(itemId) {
 
 export function deleteEmail(itemId) {
   return { type: DELETE_EMAIL, itemId };
+}
+
+export function addEmails(emails) {
+  return { type: ADD_EMAILS, emails };
 }

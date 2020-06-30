@@ -7,7 +7,8 @@ import {
   MARK_AS_READ,
   MARK_AS_UNREAD,
   MOVE_TO_SPAM,
-  DELETE_EMAIL
+  DELETE_EMAIL,
+  ADD_EMAILS
 } from './actions';
 
 const initialState = {
@@ -70,6 +71,9 @@ const reducer = (state = initialState, action) => {
         deleted: [...state.deleted, deletedEmail]
       };
     }
+
+    case ADD_EMAILS:
+      return { ...state, inbox: [...action.emails, ...state.inbox] };
 
     default:
       return state;

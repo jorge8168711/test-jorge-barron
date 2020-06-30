@@ -13,7 +13,8 @@ const ViewerBody = (props) => {
       <p className='my-0 ViewerBody-content'>{body}</p>
 
       <div className='ViewerBody-controls flex items-center'>
-        {attachements.length > 0 &&
+        {attachements &&
+          attachements.length > 0 &&
           attachements.map((item) => (
             <a
               href={item.file}
