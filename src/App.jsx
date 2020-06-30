@@ -18,7 +18,7 @@ const App = () => {
       <Inbox
         emails={store[store.filterBy]}
         onSelect={setSelection}
-        selection={selection && selection.id}
+        selection={(selection && selection.id) || ''}
       />
 
       {selection && <Viewer email={selection} />}

@@ -35,7 +35,7 @@ const Inbox = (props) => {
 
 Inbox.propTypes = {
   onSelect: PropTypes.func,
-  selection: PropTypes.sttring,
+  selection: PropTypes.string,
   emails: PropTypes.arrayOf(
     PropTypes.shape({
       attachements: PropTypes.arrayOf(
