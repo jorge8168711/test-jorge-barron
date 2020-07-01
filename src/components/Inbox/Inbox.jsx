@@ -10,28 +10,29 @@ const Inbox = (props) => {
   const dispatch = useDispatch();
   const { emails } = props;
   const globalState = useSelector((state) => state);
+  const items = emails
+    .filter(
+      (item) =>
+        item.body.toLowerCase().includes(globalState.search.toLowerCase()) ||
+        item.subject.toLowerCase().includes(globalState.search.toLowerCase())
+    )
+    .map((email) => (
+      <InboxEmail
+        onClick={() => dispatch(setSelection(email))}
+        data={email}
+        key={email.id}
+        selected={globalState.currentSelection && globalState.currentSelection.id === email.id}
+      />
+    ));
 
   return (
     <section className='Inbox'>
       <InboxHeader unreadedItems={emails.filter((item) => !item.isReaded).length} />
 
       <div className='InboxList'>
-        {emails
-          .filter(
-            (item) =>
-              item.body.toLowerCase().includes(globalState.search.toLowerCase()) ||
-              item.subject.toLowerCase().includes(globalState.search.toLowerCase())
-          )
-          .map((email) => (
-            <InboxEmail
-              onClick={() => dispatch(setSelection(email))}
-              data={email}
-              key={email.id}
-              selected={
-                globalState.currentSelection && globalState.currentSelection.id === email.id
-              }
-            />
-          ))}
+        {items}
+
+        {items.length === 0 && <p className='text-center'>No results</p>}
       </div>
     </section>
   );
