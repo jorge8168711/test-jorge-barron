@@ -53,22 +53,24 @@ const reducer = (state = initialState, action) => {
     }
 
     case MOVE_TO_SPAM: {
-      const itemIndex = state[state.filterBy].findIndex((item) => item.id === action.itemId);
-      const updatedItems = [...state[state.filterBy]];
-      const deletedEmail = updatedItems.splice(itemIndex, 1)[0];
-
-      return { ...state, [state.filterBy]: updatedItems, spam: [...state.spam, deletedEmail] };
-    }
-
-    case DELETE_EMAIL: {
-      const itemIndex = state[state.filterBy].findIndex((item) => item.id === action.itemId);
-      const updatedItems = [...state[state.filterBy]];
-      const deletedEmail = updatedItems.splice(itemIndex, 1)[0];
+      const deletedEmail = state[state.filterBy].find((el) => el.id === action.itemId);
+      const updatedItems = state[state.filterBy].filter((item) => item.id !== action.itemId);
 
       return {
         ...state,
         [state.filterBy]: updatedItems,
-        deleted: [...state.deleted, deletedEmail]
+        spam: deletedEmail ? [...state.deleted, deletedEmail] : [...state.deleted]
+      };
+    }
+
+    case DELETE_EMAIL: {
+      const deletedEmail = state[state.filterBy].find((el) => el.id === action.itemId);
+      const updatedItems = state[state.filterBy].filter((item) => item.id !== action.itemId);
+
+      return {
+        ...state,
+        [state.filterBy]: updatedItems,
+        deleted: deletedEmail ? [...state.deleted, deletedEmail] : [...state.deleted]
       };
     }
 
