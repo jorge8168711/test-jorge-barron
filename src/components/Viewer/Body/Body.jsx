@@ -13,19 +13,21 @@ const ViewerBody = (props) => {
       <p className='my-0 ViewerBody-content'>{body}</p>
 
       <div className='ViewerBody-controls flex items-center'>
-        {attachements &&
-          attachements.length > 0 &&
-          attachements.map((item) => (
-            <a
-              href={item.file}
-              rel='noopener noreferrer'
-              className='ViewerBody-link Button flex items-center'
-              key={shortid.generate()}
-              target='blank'>
-              <AttachmentIcon className='ViewerBody-attachment mr-1' />
-              {item.name}
-            </a>
-          ))}
+        <div className='flex flex-column'>
+          {attachements &&
+            attachements.length > 0 &&
+            attachements.map((item) => (
+              <a
+                href={item.file}
+                rel='noopener noreferrer'
+                className='ViewerBody-link Button flex items-center'
+                key={shortid.generate()}
+                target='blank'>
+                <AttachmentIcon className='ViewerBody-attachment mr-1' />
+                {item.name}
+              </a>
+            ))}
+        </div>
 
         <Button className='ml-auto ViewerBody-button' color='primary'>
           Replay
