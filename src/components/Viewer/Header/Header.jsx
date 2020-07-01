@@ -3,7 +3,7 @@ import Button from '../../Button/Button';
 import './Header.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteEmail, moveToSpam, markAsUnread } from '../../../store/actions';
+import { deleteEmail, moveToSpam, markAsUnread, cleanSelection } from '../../../store/actions';
 
 const ViewerHeader = (props) => {
   const { emailId } = props;
@@ -14,13 +14,24 @@ const ViewerHeader = (props) => {
     <div className='ViewerHeader'>
       <div className='ViewerHeader-wrapper flex'>
         {currentFilter !== 'deleted' && (
-          <Button className='mr-2' color='warn' onClick={() => dispatch(deleteEmail(emailId))}>
+          <Button
+            className='mr-2'
+            color='warn'
+            onClick={() => {
+              dispatch(deleteEmail(emailId));
+              dispatch(cleanSelection());
+            }}>
             Delete
           </Button>
         )}
 
         {currentFilter !== 'spam' && (
-          <Button color='default' onClick={() => dispatch(moveToSpam(emailId))}>
+          <Button
+            color='default'
+            onClick={() => {
+              dispatch(moveToSpam(emailId));
+              dispatch(cleanSelection());
+            }}>
             Spam
           </Button>
         )}
