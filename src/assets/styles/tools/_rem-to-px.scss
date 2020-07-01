@@ -1,0 +1,7 @@
+/**
+ * $target: value to be converted
+ * $context: base font-size, the equivalent on px to 1em
+ */
+@function rem($target, $context: $body-font-size) {
+  @return ($target / $context) * 1rem;
+}

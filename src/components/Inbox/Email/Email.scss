@@ -1,0 +1,65 @@
+@import '../../../assets/styles/settings/all';
+@import '../../../assets/styles/tools/all';
+
+.InboxEmail {
+  font-size: 1rem;
+  padding: em(20px) em(20px) em(10px);
+  border-top: 1px solid $border-color-gray;
+  border-left: 4px solid transparent;
+  transition: all .18s cubic-bezier(0.4, 0.0, 0.2, 1);
+  &:last-child {
+    border-bottom: 1px solid $border-color-gray;
+  }
+
+  &.is-unread {
+    border-left-color: $color-primary;
+    background-color: $color-primary-light;
+  }
+
+  &.is-selected {
+    background-color: $color-gray-light
+  }
+
+  &-left {
+    width: calc(100% - #{em(80px)});
+  }
+
+  &-right {
+    color: $color-gray;
+    text-align: right;
+    min-width: em(80px);
+  }
+
+  &-subject {
+    font-weight: bold;
+    margin: 0 0 em(7px);
+  }
+
+  &.is-unread &-subject {
+    color: $color-primary
+  }
+
+  &-subject,
+  &-body {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &-body {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &-date {
+    margin: 0 0 em(8px);
+  }
+
+  &-attachment {
+    height: em(20px);
+    width: em(20px);
+    opacity: .65;
+    transform: rotate(45deg);
+  }
+}

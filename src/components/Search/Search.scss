@@ -1,0 +1,46 @@
+@import '../../assets/styles/settings/all';
+@import '../../assets/styles/tools/all';
+
+.Search {
+  font-size: 1rem;
+  box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.1);
+  display: block;
+  border-radius: em(6px);
+  padding: 0 em(40px) 0 em(12px);
+  height: em(36px);
+  width: 100%;
+
+  &:not(.has-value) {
+    background: transparent url(../../assets/img/search-24px.svg) calc(100% - 10px) center/20px no-repeat;
+  }
+
+  &-container {
+    padding: em(20px) em(20px) em(18px);
+  }
+
+  &,
+  &:focus,
+  &-btn,
+  &-btn:focus {
+    border: 0;
+    outline: none;
+  }
+
+  &,
+  &-btn {
+    appearance: none;
+    -webkit-apearance: none;
+    -moz-appearance: none;
+  }
+
+  &-btn {
+    background-color: transparent;
+    height: 100%;
+    width: em(40px);
+    color: $color-gray;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

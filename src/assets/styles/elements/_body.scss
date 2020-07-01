@@ -1,0 +1,10 @@
+body,
+html {
+  font-size: $body-font-size;
+}
+
+body {
+  color: $font-primary-color;
+  font-family: $font-sans;
+  background-color: $color-gray-light;
+}
