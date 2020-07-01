@@ -8,3 +8,8 @@
     max-width: 240px;
   }
 }
+
+.InboxList {
+  max-height: calc(100vh - 132px);
+  overflow-y: auto;
+}

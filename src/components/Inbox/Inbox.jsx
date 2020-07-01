@@ -13,22 +13,24 @@ const Inbox = (props) => {
     <section className='Inbox'>
       <InboxHeader unreadedItems={emails.filter((item) => !item.isReaded).length} />
 
-      {emails
-        .filter(
-          (item) =>
-            item.body.toLowerCase().includes(currentSearch.toLowerCase()) ||
-            item.subject.toLowerCase().includes(currentSearch.toLowerCase())
-        )
-        .map((email) => (
-          <InboxEmail
-            onClick={() => {
-              onSelect(email);
-            }}
-            data={email}
-            key={email.id}
-            selected={selection === email.id}
-          />
-        ))}
+      <div className='InboxList'>
+        {emails
+          .filter(
+            (item) =>
+              item.body.toLowerCase().includes(currentSearch.toLowerCase()) ||
+              item.subject.toLowerCase().includes(currentSearch.toLowerCase())
+          )
+          .map((email) => (
+            <InboxEmail
+              onClick={() => {
+                onSelect(email);
+              }}
+              data={email}
+              key={email.id}
+              selected={selection === email.id}
+            />
+          ))}
+      </div>
     </section>
   );
 };
