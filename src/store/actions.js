@@ -13,6 +13,9 @@ export const DELETE_EMAIL = 'DELETE_EMAIL';
 
 export const ADD_EMAILS = 'ADD_EMAILS';
 
+export const SET_SELECTION = 'SET_SELECTION';
+export const CLEAN_SELECTION = 'CLEAN_SELECTION';
+
 export function asyncAction(action) {
   return { ASYNC_ACTION: action };
 }
@@ -54,4 +57,12 @@ export function deleteEmail(itemId) {
 
 export function addEmails(emails) {
   return { type: ADD_EMAILS, emails };
+}
+
+export function setSelection(email) {
+  return { type: SET_SELECTION, email };
+}
+
+export function cleanSelection() {
+  return { type: CLEAN_SELECTION };
 }

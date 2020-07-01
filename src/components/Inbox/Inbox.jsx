@@ -3,11 +3,13 @@ import InboxHeader from './Header/Header';
 import './Inbox.scss';
 import InboxEmail from './Email/Email';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelection } from '../../store/actions';
 
 const Inbox = (props) => {
-  const { emails, onSelect, selection } = props;
-  const currentSearch = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  const { emails } = props;
+  const globalState = useSelector((state) => state);
 
   return (
     <section className='Inbox'>
@@ -17,17 +19,17 @@ const Inbox = (props) => {
         {emails
           .filter(
             (item) =>
-              item.body.toLowerCase().includes(currentSearch.toLowerCase()) ||
-              item.subject.toLowerCase().includes(currentSearch.toLowerCase())
+              item.body.toLowerCase().includes(globalState.search.toLowerCase()) ||
+              item.subject.toLowerCase().includes(globalState.search.toLowerCase())
           )
           .map((email) => (
             <InboxEmail
-              onClick={() => {
-                onSelect(email);
-              }}
+              onClick={() => dispatch(setSelection(email))}
               data={email}
               key={email.id}
-              selected={selection === email.id}
+              selected={
+                globalState.currentSelection && globalState.currentSelection.id === email.id
+              }
             />
           ))}
       </div>
@@ -36,8 +38,6 @@ const Inbox = (props) => {
 };
 
 Inbox.propTypes = {
-  onSelect: PropTypes.func,
-  selection: PropTypes.string,
   emails: PropTypes.arrayOf(
     PropTypes.shape({
       attachements: PropTypes.arrayOf(
@@ -60,9 +60,7 @@ Inbox.propTypes = {
 };
 
 Inbox.defaultProps = {
-  emails: [],
-  onSelect: () => null,
-  selection: ''
+  emails: []
 };
 
 export default Inbox;

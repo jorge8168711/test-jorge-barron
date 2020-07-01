@@ -8,17 +8,20 @@ import {
   MARK_AS_UNREAD,
   MOVE_TO_SPAM,
   DELETE_EMAIL,
-  ADD_EMAILS
+  ADD_EMAILS,
+  SET_SELECTION,
+  CLEAN_SELECTION
 } from './actions';
 
 const initialState = {
   filterBy: 'inbox',
+  currentSelection: null,
   search: '',
   inbox: [],
   spam: [],
   deleted: [],
   status: '',
-  errir: null
+  error: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -76,6 +79,12 @@ const reducer = (state = initialState, action) => {
 
     case ADD_EMAILS:
       return { ...state, inbox: [...action.emails, ...state.inbox] };
+
+    case SET_SELECTION:
+      return { ...state, currentSelection: action.email };
+
+    case CLEAN_SELECTION:
+      return { ...state, currentSelection: null };
 
     default:
       return state;

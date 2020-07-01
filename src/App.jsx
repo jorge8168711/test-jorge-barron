@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Inbox from './components/Inbox/Inbox';
 import Viewer from './components/Viewer/Viewer';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,12 +7,12 @@ import { Email } from './models/Email';
 import shortid from 'shortid';
 
 const App = () => {
-  const store = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [selection, setSelection] = useState(null);
+  const globalState = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchEmails());
+
     const interval = setInterval(() => {
       dispatch(
         addEmails([
@@ -52,13 +52,9 @@ const App = () => {
 
   return (
     <main className='flex min-h-screen'>
-      <Inbox
-        emails={store[store.filterBy]}
-        onSelect={setSelection}
-        selection={(selection && selection.id) || ''}
-      />
+      <Inbox emails={globalState[globalState.filterBy]} />
 
-      {selection && <Viewer email={selection} />}
+      {globalState.currentSelection && <Viewer email={globalState.currentSelection} />}
     </main>
   );
 };
