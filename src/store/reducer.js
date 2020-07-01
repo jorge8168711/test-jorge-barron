@@ -59,7 +59,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [state.filterBy]: updatedItems,
-        spam: deletedEmail ? [...state.deleted, deletedEmail] : [...state.deleted]
+        spam: deletedEmail ? [...state.spam, deletedEmail] : [...state.spam]
       };
     }
 
