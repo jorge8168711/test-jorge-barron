@@ -1,6 +1,6 @@
 # Frontend Code Challenge
 
-This challenge consist in making a single page application using React.js, Redux.js and SASS.
+This challenge consist in making a single page application using React.js, Redux.js and SASS without create-react-app or any other automatic tool to setup a react project, this project use webpack to setup the project.
 
 ![CleanShot 2023-01-12 at 10 40 56](https://user-images.githubusercontent.com/7266089/212238967-a2ece0c9-0cf9-40b9-9ba7-c11c2b165b23.png)
 
